@@ -1,13 +1,13 @@
 <?php
 
-class CintaVideo extends Soport{
+class CintaVideo extends Soport {
     // atributos
     private int $durada;
 
     // constructor
-    public function __construct($nom, $numero, $maxLloguerConcurrent=3, int $durada){
+    public function __construct($titol, $numero, $preu, $durada){
         // sobreescribir el constructor de la clase padre
-        parent::__construct($nom, $numero, $maxLloguerConcurrent=3);
+        parent::__construct($titol, $numero, $preu);
         $this->durada = $durada;
     }
 
