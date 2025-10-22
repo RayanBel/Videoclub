@@ -15,3 +15,12 @@ echo "<strong>" . $laMevaCinta->titol . "</strong>";
 echo "<br>Preu: " . $laMevaCinta->getPreu() . " euros";
 echo "<br>Preu IVA inclos: " . $laMevaCinta->getPreuAmbIVA() . " euros";
 $laMevaCinta->mostraResum();
+
+
+include "Dvd.php";
+
+$elMeuDvd = new Dvd("Origen", 24, 15, "es,en,fr", "16:9");
+echo "<strong>" . $elMeuDvd->titol . "</strong>";
+echo "<br>Preu: " . $elMeuDvd->getPreu() . " euros";
+echo "<br>Preu IVA inclos: " . $elMeuDvd->getPreuAmbIVA() . " euros";
+$elMeuDvd->mostraResum();
