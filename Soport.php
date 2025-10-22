@@ -24,6 +24,7 @@ class Soport
     // obtener precio mas IVA del soporte
     public function getPreuAmbIva()
     {
+        // calcula el precio más IVA
         return $this->preu * (1 + Soport::$IVA / 100);
     }
 
@@ -36,6 +37,7 @@ class Soport
     // mostrar resumen
     public function mostraResum()
     {
-        echo "RESUMEN: Titol: " . $this->titol . ", Preu: " . $this->preu . " € (IVA no inclos) " . "<br>";;
+        echo "<br>Titol: " . $this->titol . "<br>";
+        echo "Preu: " . $this->preu . " € (IVA no inclos) " . "<br>";;
     }
 }
