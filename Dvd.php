@@ -1,4 +1,6 @@
 <?php
+include_once "Soport.php";
+
 class DVD extends Soport
 {
     // atributos
@@ -12,10 +14,12 @@ class DVD extends Soport
 
         $this->idiomes = $idiomes;
         $this->formatPantalla = $formatPantalla;
+        $this->mostraResum();
     }
 
     // sobreescribir el metodo mostraResum
     function mostraResum(){
+        echo "<br>Pel·lícula en DVD ";
         parent::mostraResum();
         echo "Idiomes: " . $this->idiomes . "<br>";
         echo "Format Pantalla: " . $this->formatPantalla . "<br>";

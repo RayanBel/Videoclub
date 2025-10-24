@@ -1,6 +1,5 @@
 <?php
-
-class Joc {
+class Client {
         public string $nom;
         private int $numero;
         private int $maxLloguerConcurrent;
@@ -13,7 +12,7 @@ class Joc {
         }
 
         function getNumero(): int{
-                return $numero;
+                return $this->numero;
         }
 
         function setNumero(int $numero){
@@ -21,48 +20,49 @@ class Joc {
         }
 
         function getNumSoportsLlogats():int{
-                return count($soportsLlogats);
+                return count($this->soportsLlogats);
         }
 
         function mostraResum(){
-                echo $this->nom." té llogats ".getNumSoportsLlogats();
+                echo $this->nom." té llogats ".$this->getNumSoportsLlogats();
         }
 
         function teLlogat(Soport $s): bool{
-                foreach ($soportsLlogats as $llogats)
+                foreach ($this->soportsLlogats as $llogats)
                         if ($llogats == $s)
                                 return true;
                 return false;
         }
 
         function llogar(Soport $s): bool {
-                if($maxLloguerConcurrent>=getNumSoportsLlogats()){
-                        echo "Tiene massa llogats";
+                if($this->teLlogat($s)){
+                        echo '<br>Ja tens aquest suport "'.$s->titol.'" llogat.<br>';
                         return false;
                 }
-                if(teLlogat($s)){
-                        echo "Ja ho té llogat";
+                if($this->maxLloguerConcurrent<=$this->getNumSoportsLlogats()){
+                        echo "<br>Has arribat al màxim de lloguers.<br>";
                         return false;
                 }
-                $soportsLlogats[]=$s;
-                echo "Se ha afegit un nou soport";
+                $this->soportsLlogats[]=$s;
+                echo "<br>Llogat correctament: ".$s->titol.": ".$this->nom;
                 return true;
         }
 
         function tornar(int $numSoport): bool {
-                foreach ($soportsLlogats as $llogats)
-                        if ($llogats.getNumero()==$numSoport) {
-                                echo "Soport present";
-                                unset($soportsLlogats[$llogats]);
+                foreach ($this->soportsLlogats as $llogats)
+                        if ($llogats->getNumero()==$numSoport) {
+                                echo '<br>"'.$llogats->titol.'" Suport retornat correctament.<br>';
+                                unset($this->soportsLlogats[$numSoport]);
                                 return true;
                         }
 
-                echo "Ja ho té llogat";
+                echo "<br>No tens aquest suport llogat.<br>";
                 return false;
         }
 
-        function llistarLloguers(): void{
-                foreach ($soportsLlogats as $llogats)
-                        echo $llogats->titol;
+        function llistaLlogers(): void{
+                echo $this->nom." té ".$this->getNumSoportsLlogats()." llogers.";
+                foreach ($this->soportsLlogats as $llogats)
+                        echo $llogats->mostraResum()."<br><hr><br>";
         }
 }

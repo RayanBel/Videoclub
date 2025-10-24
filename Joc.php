@@ -1,5 +1,5 @@
 <?php
-include "Soport.php";
+include_once "Soport.php";
 
 class Joc extends Soport
 {
@@ -18,20 +18,21 @@ class Joc extends Soport
         $this->consola = $consola;
         $this->minNumJugadors = $minNumJugadors;
         $this->maxNumJugadors = $maxNumJugadors;
+        $this->mostraResum();
     }
 
     // mostrar jugadores posibles para el juego
     public function mostraJugadorsPossibles()
     {
         // dependiendo del maximo de jugadores, se muestra el mensaje para "1 jugador" o "x jugadores"
-        echo $this->maxNumJugadors >= 1 ? "Per a un jugador" : "Per a " . $this->maxNumJugadors . " jugadores<br>";
+        echo "Per a " . $this->maxNumJugadors . " jugador<br>";
     }
 
     // sobreescribir metodo resumen
     public function mostraResum()
     {
         // mostrar ccnsola
-        echo "<br>Joc per: " . $this->consola;
+        echo "<br>Joc per " . $this->consola.": ";
 
         // invocar metodo padre
         parent::mostraResum();

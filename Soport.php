@@ -37,7 +37,7 @@ class Soport
     // mostrar resumen
     public function mostraResum()
     {
-        echo "<br>Titol: " . $this->titol . "<br>";
-        echo "Preu: " . $this->preu . " € (IVA no inclos) " . "<br>";;
+        echo $this->titol . "<br>";
+        echo $this->preu . " € (IVA no inclos) " . "<br>";;
     }
 }
