@@ -48,6 +48,8 @@ class Client {
                 return true;
         }
 
+
+        # Revisa si puedes arreglar esto 
         function tornar(int $numSoport): bool {
                 foreach ($this->soportsLlogats as $llogats)
                         if ($llogats->getNumero()==$numSoport) {
@@ -63,6 +65,6 @@ class Client {
         function llistaLlogers(): void{
                 echo $this->nom." té ".$this->getNumSoportsLlogats()." llogers.";
                 foreach ($this->soportsLlogats as $llogats)
-                        echo $llogats->mostraResum()."<br><hr><br>";
+                        echo $llogats->mostraResum()."<br><hr>";
         }
 }
