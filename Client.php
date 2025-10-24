@@ -27,4 +27,25 @@ class Joc {
         function mostraResum(){
                 echo $this->nom." té llogats ".getNumSoportsLlogats();
         }
+
+        function teLlogat(Soport $s): bool{
+                foreach ($soportsLlogats as $llogats)
+                        if ($llogats == $s)
+                                return true;
+                return false;
+        }
+
+        function llogar(Soport $s): bool {
+                if($maxLloguerConcurrent>=getNumSoportsLlogats()){
+                        echo "Tiene massa llogats";
+                        return false;
+                }
+                if(teLlogat($s)){
+                        echo "Ja ho té llogat";
+                        return false;
+                }
+                $soportsLlogats[]=$s;
+                echo "Se ha afegit un nou soport";
+                return true;
+        }
 }
