@@ -1,4 +1,5 @@
 <?php
+include "Soport.php";
 
 class Joc extends Soport
 {

@@ -48,4 +48,21 @@ class Joc {
                 echo "Se ha afegit un nou soport";
                 return true;
         }
+
+        function tornar(int $numSoport): bool {
+                foreach ($soportsLlogats as $llogats)
+                        if ($llogats.getNumero()==$numSoport) {
+                                echo "Soport present";
+                                unset($soportsLlogats[$llogats]);
+                                return true;
+                        }
+
+                echo "Ja ho té llogat";
+                return false;
+        }
+
+        function llistarLloguers(): void{
+                foreach ($soportsLlogats as $llogats)
+                        echo $llogats->titol;
+        }
 }
