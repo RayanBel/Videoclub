@@ -37,11 +37,15 @@ class Videoclub  {
         }
 
         function incloureSoci($nom, $maxLloguersConcurrents = 3){
+                $soci=new Client($nom, $this->numSocis+1, $maxLloguersConcurrents);
+                $this->numSocis++;
+                echo "======<br>Inclòs soci ".$nom." amb número ".$this->numSocis."<br>======<br>";
 
         }
 
         function llistarProductes(){
-
+                foreach($this->productes as $producto)
+                        $producto->mostraResum();
         }
 
         function llistarSocis(){
@@ -49,6 +53,6 @@ class Videoclub  {
         }
 
         function llogarSociProducte($numeroClient, $numeroSoport){
-
+                
         }
 }
