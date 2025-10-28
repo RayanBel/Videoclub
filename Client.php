@@ -49,12 +49,12 @@ class Client {
         }
 
 
-        # Revisa si puedes arreglar esto 
+        # Corregido: se elimina item de la lista $llogats al devolver soporte
         function tornar(int $numSoport): bool {
-                foreach ($this->soportsLlogats as $llogats)
+                foreach ($this->soportsLlogats as $indice => $llogats)
                         if ($llogats->getNumero()==$numSoport) {
                                 echo '<br>"'.$llogats->titol.'" Suport retornat correctament.<br>';
-                                unset($this->soportsLlogats[$numSoport]);
+                                unset($this->soportsLlogats[$indice]);
                                 return true;
                         }
 

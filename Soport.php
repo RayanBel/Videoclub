@@ -16,7 +16,7 @@ class Soport
     }
 
     // obtener precio del soporte
-    public function getPreu()
+    public function getPreu() : string
     {
         return $this->preu;
     }
