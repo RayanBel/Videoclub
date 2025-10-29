@@ -1,5 +1,7 @@
 <?php
-abstract class Soport
+include_once "Resumible.php";
+
+abstract class Soport implements Resumible
 {
     // atributos
     public string $titol;
