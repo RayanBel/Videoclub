@@ -1,5 +1,5 @@
 <?php
-class Soport
+abstract class Soport
 {
     // atributos
     public string $titol;
