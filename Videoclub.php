@@ -39,6 +39,7 @@ class Videoclub  {
         function incloureSoci($nom, $maxLloguersConcurrents = 3){
                 $soci=new Client($nom, $this->numSocis+1, $maxLloguersConcurrents);
                 $this->numSocis++;
+                $this->socis[]=$soci; // añadir socio al array
                 echo "======<br>Inclòs soci ".$nom." amb número ".$this->numSocis."<br>======<br>";
 
         }
@@ -49,10 +50,37 @@ class Videoclub  {
         }
 
         function llistarSocis(){
-
+            // mostrar lista de socios
+            echo "Lista de socis:<br>";
+            foreach($this->socis as $socio)
+                echo $socio->mostraResum()."<br>";
         }
 
         function llogarSociProducte($numeroClient, $numeroSoport){
-                
+
+            // obtener objeto cliente
+            $socioActual = null;
+            foreach ($this->socis as $socio) {
+                if ($numeroClient == $socio->getNumero()){
+                    $socioActual = $socio;
+                }
+            }
+
+            // obtener objeto soport
+            $productoActual = null;
+            foreach ($this->productes as $producte) {
+                if ($numeroSoport == $producte->getNumero()){
+                    $productoActual = $producte;
+                }
+            }
+
+            // alquilar producto a socio/cliente
+            if ($socioActual != null and $productoActual != null){
+                $socioActual->llogar($productoActual);
+            } else {
+                echo "Socio o producto no encontrado<br>";
+            }
+
+
         }
 }
