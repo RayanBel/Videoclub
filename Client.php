@@ -34,18 +34,18 @@ class Client {
                 return false;
         }
 
-        function llogar(Soport $s): bool {
-                if($this->teLlogat($s)){
+        function llogar(Soport $s): Client {
+            // comprobar si cliente tiene alquilado el soporte
+                if($this->teLlogat($s)) {
                         echo '<br>Ja tens aquest suport "'.$s->titol.'" llogat.<br>';
-                        return false;
+                } elseif ($this->maxLloguerConcurrent<=$this->getNumSoportsLlogats()){
+                            echo "<br>Has arribat al màxim de lloguers.<br>";
+                } else {
+                    $this->soportsLlogats[]=$s;
+                    echo "<br>Llogat correctament: ".$s->titol.": ".$this->nom;
                 }
-                if($this->maxLloguerConcurrent<=$this->getNumSoportsLlogats()){
-                        echo "<br>Has arribat al màxim de lloguers.<br>";
-                        return false;
-                }
-                $this->soportsLlogats[]=$s;
-                echo "<br>Llogat correctament: ".$s->titol.": ".$this->nom;
-                return true;
+
+                return $this; // return cliente para encadenar metodos
         }
 
 

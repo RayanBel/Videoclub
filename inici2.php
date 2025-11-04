@@ -50,3 +50,7 @@ $client1->llistaLlogers();
 echo "</br>";
 //aquest client no té lloguers
 $client2->tornar(0);
+
+// 135 metodos encadenados
+echo "<br><h4>Médotods encadenados:</h4>";
+$client1->llogar($soport4)->llogar($soport4);
