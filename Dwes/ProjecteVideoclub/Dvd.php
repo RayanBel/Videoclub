@@ -1,4 +1,6 @@
 <?php
+namespace Dwes\ProjecteVideoclub;
+
 include_once "Soport.php";
 
 class DVD extends Soport

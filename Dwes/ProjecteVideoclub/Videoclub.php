@@ -1,4 +1,6 @@
 <?php
+namespace Dwes\ProjecteVideoclub;
+
 include_once "CintaVideo.php";
 include_once "Dvd.php";
 include_once "Joc.php";

@@ -1,5 +1,9 @@
 <?php
-include_once "Videoclub.php"; // No incloem res més
+// incluir archivo
+require_once "Dwes/ProjecteVideoclub/Videoclub.php";
+
+// importar namespaces
+use Dwes\ProjecteVideoclub\Videoclub;
 
 $vc = new Videoclub("Cas Concos 45 baixos");
 

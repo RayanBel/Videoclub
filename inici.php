@@ -1,5 +1,11 @@
 <?php
-include "Joc.php";
+// incluir archivo
+require_once "Dwes\ProjecteVideoclub\Joc.php";
+
+// importar namespaces
+use Dwes\ProjecteVideoclub\Joc;
+
+
 
 $elMeuJoc = new Joc("The Last of Us Part II", 26, 49.99, "PS4", 1, 1);
 echo "<strong>" . $elMeuJoc->titol . "</strong>";

@@ -1,4 +1,6 @@
 <?php
+namespace Dwes\ProjecteVideoclub;
+
 class Client {
         public string $nom;
         private int $numero;
@@ -47,7 +49,6 @@ class Client {
 
                 return $this; // return cliente para encadenar metodos
         }
-
 
         # Corregido: se elimina item de la lista $llogats al devolver soporte
         function tornar(int $numSoport): bool {

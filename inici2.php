@@ -1,8 +1,16 @@
 <?php
-include_once "CintaVideo.php";
-include_once "Dvd.php";
-include_once "Joc.php";
-include_once "Client.php";
+
+// añadir archivos
+require_once "Dwes/ProjecteVideoclub/CintaVideo.php";
+require_once "Dwes/ProjecteVideoclub/Dvd.php";
+require_once "Dwes/ProjecteVideoclub/Joc.php";
+require_once "Dwes/ProjecteVideoclub/Client.php";
+
+// importar namespaces
+use Dwes\ProjecteVideoclub\CintaVideo;
+use Dwes\ProjecteVideoclub\Dvd;
+use Dwes\ProjecteVideoclub\Joc;
+use Dwes\ProjecteVideoclub\Client;
 
 //instanciam un parell d'objectes client
 $client1 = new Client("Bruce Wayne", 23);
